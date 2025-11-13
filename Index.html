@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Good Samaritan</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #e0f7fa, #f9fafc);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 450px;
+      animation: fadeUp 1s ease-in-out;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 { color: #007bff; margin-bottom: 10px; }
+    p { color: #555; font-size: 15px; line-height: 1.6; }
+
+    img {
+      width: 100%;
+      border-radius: 12px;
+      margin: 20px 0;
+      animation: fadeInImg 2s ease;
+    }
+
+    @keyframes fadeInImg { from { opacity: 0; } to { opacity: 1; } }
+
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    button:hover { background: #0056b3; transform: scale(1.05); }
+
+    a {
+      display: block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    /* --- Contact form --- */
+    form {
+      margin-top: 25px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #007bff;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-size: 15px;
+      font-family: inherit;
+    }
+
+    textarea { resize: none; height: 100px; }
+
+    .success-message {
+      display: none;
+      color: green;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to<br>Good Samaritan!</h1>
+    <p>Every helping hand is valued — we extend gratitude to all who support those in need.</p>
+
+    <img id="randomImage" src="" alt="Inspiration" />
+
+    <p>Click the button below:</p>
+    <button onclick="alert('Thank you for your kindness!')">Click Me</button>
+
+    <a href="https://www.google.com" target="_blank">Visit Google</a>
+
+    <!-- 💬 Contact Form Section -->
+    <h2>Contact Us</h2>
+
+   <!-- Version 2: Formspree -->
+   <form
+  action="https://formspree.io/f/mgvrvejg"
+  class="fs-form"
+  target="_top"
+  method="POST"
+>
+  <div class="fs-field">
+    <label class="fs-label" for="full-name">Full Name</label>
+    <input
+      class="fs-input"
+      id="full-name"
+      name="full-name"
+      placeholder="Enter your full name"
+      required
+    />
+  </div>
+  <div class="fs-field">
+    <label class="fs-label" for="email">Email</label>
+    <input
+      class="fs-input"
+      id="email"
+      name="email"
+      placeholder="Enter your email address"
+      required
+    />
+  </div>
+  <div class="fs-field">
+    <label class="fs-label" for="phone-number">Phone Number</label>
+    <input
+      class="fs-input"
+      id="phone-number"
+      name="phone-number"
+      placeholder="Enter your phone number"
+      required
+    />
+  </div>
+  <div class="fs-field">
+    <label class="fs-label" for="amount">Donation Amount</label>
+    <input
+      class="fs-input"
+      id="amount"
+      name="amount"
+      placeholder="Enter the amount you wish to donate"
+      required
+    />
+  </div>
+  <div class="fs-field">
+    <label class="fs-label" for="message">Message</label>
+    <textarea
+      class="fs-textarea"
+      id="message"
+      name="message"
+      placeholder="Write a message or note (optional)"
+    ></textarea>
+  </div>
+  <div class="fs-button-group">
+    <button class="fs-button" type="submit">Submit</button>
+  </div>
+</form>
+  </div>
+
+  <script>
+    // 🌄 Random image picker
+    const images = [
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=800&q=60"
+    ];
+    document.getElementById("randomImage").src = images[Math.floor(Math.random() * images.length)];
+
+    // ✅ Local form handler
+    document.getElementById("localForm").addEventListener("submit", e => {
+      e.preventDefault();
+      document.getElementById("successMsg").style.display = "block";
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
